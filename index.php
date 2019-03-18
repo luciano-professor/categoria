@@ -6,33 +6,35 @@ require_once('Categoria.php');
 $categoria = new Categoria();
 $resultados = $categoria->listar();
 
-print_r($resultados);
-die();
-
 
 ?>
-		
+
+	<div class="float-right">
+		<a href="cadastro.php" class="btn btn-primary ">Adicionar Categoria</a>
+	</div>
 	<table class="table table-dark">
 		<tr>
 			<th>Id</th>
-			<th>Categoria</th>
+			<th>Nome da Categoria</th>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>Terror</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Terror</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Terror</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Terror</td>
-		</tr>
+		
+		<?php
+			foreach($resultados as $linha){
+		?>
+
+			<tr>
+				<td>
+					<?=$linha['id']?> 
+				</td>
+				<td>
+					<?=$linha['nome']?> 
+				</td>
+			</tr>
+				
+
+		<?php
+			}
+		?>
 
 	</table>
 
